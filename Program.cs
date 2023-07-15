@@ -16,19 +16,25 @@ class Program
 
 
             string input = Console.ReadLine();
-            using var channel = GrpcChannel.ForAddress("https://localhost:7263");
-            var client = new Converter.ConverterClient(channel);
-            var reply = await client.ConvertCurrencyAsync(new ConverterRequest { CurrencyInNumber = input });
-
-            if(reply.Status.Status== "success")
+            try
             {
-                Console.WriteLine($"\nResult is {reply.CurrencyInWords}\n\n");
-            }
-            else
-            {
+                using var channel = GrpcChannel.ForAddress("https://localhost:7263");
+                var client = new Converter.ConverterClient(channel);
+                var reply = await client.ConvertCurrencyAsync(new ConverterRequest { CurrencyInNumber = input });
 
-                Console.WriteLine("\n"+reply.Status.Status);
-                Console.WriteLine(reply.Status.Message+"\n\n");
+                if (reply.Status.Status == "success")
+                {
+                    Console.WriteLine($"\nResult is {reply.CurrencyInWords}\n\n");
+                }
+                else
+                {
+
+                    Console.WriteLine("\n" + reply.Status.Status);
+                    Console.WriteLine(reply.Status.Message + "\n\n");
+                }
+            } catch(Exception ex)
+            {
+                Console.WriteLine($"Failed to convert {ex.Message}\n\n");
             }
             Console.WriteLine("Press 'x' to exist, or Press any other key to Re-do\n\n\n");
 
