@@ -1,5 +1,5 @@
 # ConvertCurrencyClient
-A program which converts a currency (dollars) from numbers into words.
+A program that converts a currency (dollars) from numbers into words.
 The maximum number is 999 999 999.
 The maximum number of cents is 99.
 The separator between dollars and cents is ‘,’ (comma).
@@ -12,6 +12,6 @@ The separator between dollars and cents is ‘,’ (comma).
 5. 45 100  - forty-five thousand one hundred dollars
 6. 999 999 999,99  - nine hundred ninety-nine million nine hundred ninety-nine thousand nine hundred ninety-nine dollars and ninety-nine cents.
 
-Service implemnted in a seperate application.
-You can visit to the service application by below link.
+Service is implemented in a separate application.
+You can visit the service application by the below link.
 https://github.com/developerMathi/ConvertCurrencyService
